@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具箱 - 全网AI工具聚合导航</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        darker: '#020617',
+                        card: '#1e293b',
+                        primary: '#a855f7',
+                        accent: '#ec4899'
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-scale {
+                @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 min-h-screen">
+    <!-- 顶部导航 -->
+    <header class="sticky top-0 bg-darker border-b border-gray-800 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-robot text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold">AI工具箱</h1>
+            </div>
+            <!-- 搜索框 -->
+            <div class="w-full md:w-80 relative">
+                <input id="search" type="text" placeholder="搜索工具名称..." 
+                    class="w-full bg-card px-4 py-2 rounded-lg border border-gray-700 focus:outline-none focus:border-primary pl-10">
+                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 顶部广告位 -->
+    <div class="max-w-7xl mx-auto p-4">
+        <div class="bg-card rounded-lg p-3 text-center border border-gray-700">
+            <p class="text-gray-400 text-sm"><i class="fa-solid fa-bullhorn text-primary mr-1"></i> 顶部广告展示位</p>
+        </div>
+    </div>
+
+    <!-- 分类导航 -->
+    <nav class="max-w-7xl mx-auto px-4 pb-3">
+        <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <button class="cat-btn active bg-primary text-white px-4 py-2 rounded-full text-sm" data-cat="all">全部</button>
+            <button class="cat-btn bg-card px-4 py-2 rounded-full text-sm hover:bg-primary/20" data-cat="design">设计创作</button>
+            <button class="cat-btn bg-card px-4 py-2 rounded-full text-sm hover:bg-primary/20" data-cat="write">文案写作</button>
+            <button class="cat-btn bg-card px-4 py-2 rounded-full text-sm hover:bg-primary/20" data-cat="voice">语音处理</button>
+            <button class="cat-btn bg-card px-4 py-2 rounded-full text-sm hover:bg-primary/20" data-cat="study">学习教育</button>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="max-w-7xl mx-auto p-4">
+        <div id="toolList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- 设计创作 -->
+            <div class="tool-item bg-card rounded-xl p-5 border border-gray-700 card-scale" data-cat="design">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <h3 class="font-semibold">Canva AI</h3>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">AI智能设计，一键生成海报、logo、短视频</p>
+                <a href="https://www.canva.com" target="_blank" class="text-primary text-sm">立即访问 →</a>
+            </div>
+
+            <div class="tool-item bg-card rounded-xl p-5 border border-gray-700 card-scale" data-cat="design">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
+                        <i class="fa-solid fa-crop"></i>
+                    </div>
+                    <h3 class="font-semibold">Remove.bg</h3>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">AI全自动抠图，免费去除图片背景</p>
+                <a href="https://www.remove.bg" target="_blank" class="text-primary text-sm">立即访问 →</a>
+            </div>
+
+            <!-- 文案写作 -->
+            <div class="tool-item bg-card rounded-xl p-5 border border-gray-700 card-scale" data-cat="write">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-500">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+                    <h3 class="font-semibold">秘塔写作猫</h3>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">AI写作、润色、纠错，自媒体神器</p>
+                <a href="https://xiezuocat.com" target="_blank" class="text-primary text-sm">立即访问 →</a>
+            </div>
+
+            <!-- 语音处理 -->
+            <div class="tool-item bg-card rounded-xl p-5 border border-gray-700 card-scale" data-cat="voice">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center text-green-500">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <h3 class="font-semibold">剪映AI配音</h3>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">免费AI文本转语音，百种音色可选</p>
+                <a href="https://www.capcut.cn" target="_blank" class="text-primary text-sm">立即访问 →</a>
+            </div>
+
+            <!-- 学习教育 -->
+            <div class="tool-item bg-card rounded-xl p-5 border border-gray-700 card-scale" data-cat="study">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-500">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <h3 class="font-semibold">ChatDOC</h3>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">AI阅读PDF论文，快速总结问答</p>
+                <a href="https://chatdoc.com" target="_blank" class="text-primary text-sm">立即访问 →</a>
+            </div>
+        </div>
+
+        <!-- 中间广告位 -->
+        <div class="bg-card rounded-lg p-5 my-6 text-center border border-gray-700">
+            <p class="text-gray-400"><i class="fa-solid fa-ad text-primary mr-2"></i> 中间横幅广告位</p>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="bg-darker border-t border-gray-800 py-4 text-center text-gray-500 text-sm">
+        <p>© 2025 AI工具箱 | 持续更新优质AI工具</p>
+    </footer>
+
+    <!-- 功能JS -->
+    <script>
+        const search = document.getElementById('search');
+        const tools = document.querySelectorAll('.tool-item');
+        const cats = document.querySelectorAll('.cat-btn');
+
+        // 搜索
+        search.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            tools.forEach(item => {
+                const name = item.querySelector('h3').textContent.toLowerCase();
+                item.style.display = name.includes(val) ? 'block' : 'none';
+            });
+        });
+
+        // 分类切换
+        cats.forEach(btn => {
+            btn.addEventListener('click', () => {
+                cats.forEach(b => b.classList.remove('active', 'bg-primary', 'text-white'));
+                btn.classList.add('active', 'bg-primary', 'text-white');
+                const cat = btn.dataset.cat;
+                tools.forEach(item => {
+                    if(cat === 'all' || item.dataset.cat === cat) item.style.display = 'block';
+                    else item.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
